@@ -3,13 +3,23 @@
     "name": "New Actions",
     "maps": [
         {
-            "name": "New action map",
+            "name": "Default Map",
             "id": "cf1fcdd7-45c5-4394-9d5c-0797594f3b70",
             "actions": [
                 {
                     "name": "Movement",
-                    "type": "Button",
+                    "type": "Value",
                     "id": "7a84097e-cf64-480b-94b4-37302d0c6a98",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true,
+                    "priority": 0
+                },
+                {
+                    "name": "Stop",
+                    "type": "Button",
+                    "id": "eef3af06-09dd-4200-a58a-ccaf764fc265",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -19,13 +29,68 @@
             ],
             "bindings": [
                 {
-                    "name": "",
-                    "id": "072263bb-3edd-419f-9680-9a1d8c127a50",
+                    "name": "2D Vector",
+                    "id": "df9b1b81-c5be-434a-bf0a-54f03ad13d0f",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "503c57db-d8c0-46ff-aa37-8005a32b8fc2",
                     "path": "<Keyboard>/w",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "285710cb-d044-4d01-a9e2-400da0384b6c",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "e8d91483-1b7b-4c18-b008-58e27f936f45",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "ac826d73-5a25-4022-a462-50a54f2153a6",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "d3d50e2d-9541-463b-b94a-b693c250176b",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Stop",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
