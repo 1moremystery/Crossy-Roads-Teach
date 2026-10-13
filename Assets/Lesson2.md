@@ -19,6 +19,8 @@
 - Scripts
 - Scenes
 - Models
+- Prefabs
+- Materials
 
 ## Scene Changes
 Gonna flip things around so we'll be moving in x positive directions
@@ -60,6 +62,20 @@ void Update()
     Camera.main.transform.position = cameraPos;
 }
 ```
-Tag the main camera as "MainCamera" or else there will be errors
+Make sure to Tag the main camera as "MainCamera" or else there will be errors
 
 Clamp values are arbitrary, and will probably need to be changed later
+
+## Grass Prefab
+1. Create Empty object, name it grass
+1. Reset grass transform
+1. Create cube under the grass object
+1. Reset transforms
+1. Scale to 1, 0.2, 11
+1. Position to 0, 0.1, 0
+1. Under materials folder, right click > create > create material
+1. Make material green then put on grass cube
+1. Duplicate the grass material, make it a darker green, name it "Grass OOB" for grass out of bounds
+1. Duplicate the grass cube and move it z = +/- 11
+1. Add the grass oob material to duplicated grass cubes
+1. Make cubes to act as a tree and move them to the start of the oob area (y=+/-6)
