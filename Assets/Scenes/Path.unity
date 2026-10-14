@@ -496,63 +496,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 30.795, y: -47.371, z: -9.668}
---- !u!1001 &1522030738
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2377344080381101793, guid: 31f8df159edfe5d41ba875e617982bea, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2377344080381101793, guid: 31f8df159edfe5d41ba875e617982bea, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2377344080381101793, guid: 31f8df159edfe5d41ba875e617982bea, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2377344080381101793, guid: 31f8df159edfe5d41ba875e617982bea, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2377344080381101793, guid: 31f8df159edfe5d41ba875e617982bea, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2377344080381101793, guid: 31f8df159edfe5d41ba875e617982bea, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2377344080381101793, guid: 31f8df159edfe5d41ba875e617982bea, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2377344080381101793, guid: 31f8df159edfe5d41ba875e617982bea, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2377344080381101793, guid: 31f8df159edfe5d41ba875e617982bea, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2377344080381101793, guid: 31f8df159edfe5d41ba875e617982bea, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2704440368333210259, guid: 31f8df159edfe5d41ba875e617982bea, type: 3}
-      propertyPath: m_Name
-      value: Grass (1)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 31f8df159edfe5d41ba875e617982bea, type: 3}
 --- !u!1 &1731751233
 GameObject:
   m_ObjectHideFlags: 0
@@ -565,7 +508,6 @@ GameObject:
   - component: {fileID: 1731751237}
   - component: {fileID: 1731751236}
   - component: {fileID: 1731751235}
-  - component: {fileID: 1731751241}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -666,33 +608,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &1731751241
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1731751233}
-  serializedVersion: 5
-  m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!1 &1862170048
 GameObject:
   m_ObjectHideFlags: 0
@@ -723,7 +638,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24df6517c5ad23648a43b5b1ab3976ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
-  Body: {fileID: 1731751241}
+  Body: {fileID: 1731751238}
+  moveDur: 0.2
 --- !u!4 &1862170050
 Transform:
   m_ObjectHideFlags: 0
@@ -776,25 +692,9 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 1
+        m_CallState: 2
     m_ActionId: 7a84097e-cf64-480b-94b4-37302d0c6a98
     m_ActionName: 'Default Map/Movement[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]'
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1862170049}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: StopMovement
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 1
-    m_ActionId: eef3af06-09dd-4200-a58a-ccaf764fc265
-    m_ActionName: 'Default Map/Stop[/Keyboard/space]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: New Control Scheme
   m_DefaultActionMap: Default Map
@@ -867,4 +767,3 @@ SceneRoots:
   - {fileID: 1462644747}
   - {fileID: 1862170050}
   - {fileID: 9191346032211807418}
-  - {fileID: 1522030738}

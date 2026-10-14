@@ -34,7 +34,7 @@ Gonna flip things around so we'll be moving in x positive directions
 2. Remove Movement script from cube
 3. Remove Player input component from cube
 4. Drag the GameManager into the hierarchy so it creates its own empty gameObject
-5. You will have to re-setup the rigidBody and movement event in the cube
+5. You will have to re-setup the body and movement event in the GameManager object
 
 ## Movement Script
 1. Go into input actions asset
@@ -42,15 +42,34 @@ Gonna flip things around so we'll be moving in x positive directions
     - change movement to Action Type: Value - Control Type: Vector 2
     - Right click add up/right/left/down composite and set it up
 
-2. Add InputAction.CallbackContext value in function
+2. Change rigidBody to be a transform, add another serialized float for moveDuration
+```
+public void Move(InputAction.CallbackContext callbackContext)
+    {
+        Vector2 v = callbackContext.ReadValue<Vector2>();
+        if (!callbackContext.performed || v == Vector2.zero) return;
 
-3. Add `Vector2 v = callbackContext.ReadValue<Vector2>()` then set the add force value to v
 
-4. Go into cube's player input and set it to use the new Move function which should be at the top
+        StartCoroutine(AnimateMoveTo(new(Body.position.x + v.y, 0.7f, Body.position.z - v.x)));
+    }
 
-5. If RigidBody gravity is off, notice the cube goes in the wrong direction
+    IEnumerator AnimateMoveTo(Vector3 v)
+    {
+        float elapsed = 0f;
+        Vector3 startPos = Body.position;
 
-6. `Body.AddForce(new(v.y, 0, -v.x));` because w and s (up/down) are the y in this situation and left is considered negative for whatever reason
+        while (elapsed < moveDur)
+        {
+            float percent = elapsed / moveDur;
+            Vector3 newPoint = Vector3.Lerp(startPos, v, percent);
+            elapsed += Time.deltaTime;
+            Body.position = newPoint;
+            yield return null;
+        }
+        Body.position = v;
+        Debug.Log(v);
+    }
+```
 
 
 ## Camera Movement
@@ -68,14 +87,14 @@ Clamp values are arbitrary, and will probably need to be changed later
 
 ## Grass Prefab
 1. Create Empty object, name it grass
-1. Reset grass transform
-1. Create cube under the grass object
-1. Reset transforms
-1. Scale to 1, 0.2, 11
-1. Position to 0, 0.1, 0
-1. Under materials folder, right click > create > create material
-1. Make material green then put on grass cube
-1. Duplicate the grass material, make it a darker green, name it "Grass OOB" for grass out of bounds
-1. Duplicate the grass cube and move it z = +/- 11
-1. Add the grass oob material to duplicated grass cubes
-1. Make cubes to act as a tree and move them to the start of the oob area (y=+/-6)
+2. Reset grass transform
+3. Create cube under the grass object
+4. Reset transforms
+5. Scale to 1, 0.2, 11
+6. Position to 0, 0.1, 0
+7. Under materials folder, right click > create > create material
+8. Make material green then put on grass cube
+9. Duplicate the grass material, make it a darker green, name it "Grass OOB" for grass out of bounds
+10. Duplicate the grass cube and move it z = +/- 11
+11. Add the grass oob material to duplicated grass cubes
+12. Make cubes to act as a tree and move them to the start of the oob area (y=+/-6)
